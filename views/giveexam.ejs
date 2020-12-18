@@ -1,0 +1,256 @@
+
+<!-- <h1><%= user.name %></h1>
+<h2><%= results[1][0].cname %></h2>
+<!-- <video id="video" width="300" height="300" autoplay muted></video> -->
+<!-- <form action="/<%= results[1][0].e_id %>/giveexam" method="POST">
+<input type="hidden" name="maxm" id="maxm" value="<%=results[1][0].maxm %>">
+<input type="hidden" name="g_id" id="g_id" value="<%=results[1][0].id %>">
+<input type="hidden" name="nofque" id="nofque" value="<%= results[1][0].nofque %>">
+<% for(i=1;i<=results[0].length;i++) { %>
+<% if(results[0][i-1].type == "ocq" || results[0][i-1].type == "mcq") { %>
+<h4><%= results[0][i-1].que %></h4>
+<input type="hidden" name="qid<%= i %>" id="qid<%= i %>" value="<%= results[0][i-1].id %>">
+<input type="hidden" name="qtype<%= i %>" id="qtype<%= i %>" value="<%= results[0][i-1].type %>"><br>
+<label for="opt1"><%= results[0][i-1].opt1 %></label><br>
+<input type="checkbox" name="answer<%= i %>" id="opt1" value="<%= results[0][i-1].opt1 %>"><br>
+<label for="opt2"><%= results[0][i-1].opt2 %></label><br>
+<input type="checkbox" name="answer<%= i %>" id="opt2" value="<%= results[0][i-1].opt2 %>"><br>
+<label for="opt3"><%= results[0][i-1].opt3 %></label><br>
+<input type="checkbox" name="answer<%= i %>" id="opt3" value="<%= results[0][i-1].opt3 %>"><br>
+<label for="opt4"><%= results[0][i-1].opt4 %></label><br>
+<input type="checkbox" name="answer<%= i %>" id="opt4" value="<%= results[0][i-1].opt4 %>"><br>
+<% } else { %>
+    <label for="qeus<%= i %>"><%= results[0][i-1].que %></label><br>
+    <input type="hidden" name="qid<%= i %>" id="qid<%= i %>" value="<%= results[0][i-1].id %>">
+    <input type="hidden" name="qtype<%= i %>" id="qtype<%= i %>" value="<%= results[0][i-1].type %>"><br>    
+    <textarea name="answer<%= i %>" id="answer<%= i %>" cols="30" rows="10">Not Answered</textarea><br>
+<% }} %>
+<input type="submit">
+</form> --> -->
+<!-- <script src="/js/camera.js">
+</script> -->
+
+<!DOCTYPE html>
+<head>
+<title>OEC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="/css/font.css" type="text/css"/>
+<link href="/css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" href="/css/morris.css" type="text/css"/>
+<!-- calendar -->
+<link rel="stylesheet" href="/css/monthly.css">
+<!-- //calendar -->
+<!-- //font-awesome icons -->
+<script defer src="/js/face-api.min.js"></script>
+<script defer src="/js/final.js"></script>
+<script src="/js/jquery2.0.3.min.js"></script>
+<script src="/js/raphael-min.js"></script>
+<script src="/js/morris.js"></script>
+</head>
+<body onload="f1()">
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix" style="background-color: rgb(57 170 165);">
+<!--logo start-->
+<!-- <div class="brand">
+</div> -->
+<!-- <img alt="" src="images/logo.jpeg" width="150px" style="-webkit-border-radius: 50%;"> -->
+<div class="top-nav clearfix" style="margin-top: 0px;">
+    <a href="/teadash" class="logo" style="color: #333333;">
+    <img alt="" src="/images/logo.jpeg" style="width: 100px;">
+       Online Exam Conductor
+    </a>
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="/images/images.png">
+                <span class="username"><%= user.name %></span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="#"><i class=" fa fa-suitcase"></i><%= user.roll %></a></li>
+                <li><a href="/logout"><i class="fa fa-key"></i> Log Out</a></li>
+            </ul>
+        </li>
+        <!-- user login dropdown end -->
+       
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<aside>
+    <div id="sidebar" class="nav-collapse" style=" width: 350px;">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation" style="padding-top: 95px; width: 350px;">
+            <video id="video" width="250" height="250" autoplay muted></video>
+            <form id="form1" runat="server">
+                <div>
+                  <table width="100%" align="center">
+                    <tr>
+                      <td colspan="2">
+                        <h2>Exam Duration:</h2>
+                        <h2 id="Duration"><%= results[1][0].time %></h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="starttime"></div>
+             
+                        <div id="endtime"></div>
+             
+                        <div id="showtime"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </form>
+                        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+	<section class="wrapper" style="margin-left: 70px;">
+	<div class="form-w3layouts">
+        <!-- page start-->
+        <!-- page start-->
+        <div class="row">
+            <div class="col-lg-12" style="padding-left: 20px;">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <%= results[1][0].cname %> - <%= results[1][0].ename %>
+                        </header>
+                        <div class="panel-body">
+                            <div class="position-center">
+                                <form action="/<%= gid %>/giveexam" method="post" role="form" id="exit">
+                                    <input type="hidden" name="maxm" id="maxm" value="<%=results[1][0].maxm %>">
+<input type="hidden" name="g_id" id="g_id" value="<%=results[1][0].id %>">
+<input type="hidden" name="nofque" id="nofque" value="<%= results[1][0].nofque %>">
+<% for(i=1;i<=results[0].length;i++) { %>
+    <% if(results[0][i-1].type == "ocq" || results[0][i-1].type == "mcq") { %>
+        <div class="form-group">
+            <h4><strong>Question: <%= i %></strong></h4><br>
+            <h4><strong><%= results[0][i-1].que %></strong></h4>
+        </div>
+            <div class="form-group">
+                <input type="hidden" name="qid<%= i %>" id="qid<%= i %>" value="<%= results[0][i-1].id %>">
+                <input type="hidden" name="qtype<%= i %>" id="qtype<%= i %>" value="<%= results[0][i-1].type %>"><br>
+                <input type="checkbox" name="answer<%= i %>" id="opt1" value="<%= results[0][i-1].opt1 %>">                
+                <label for="opt1"><%= results[0][i-1].opt1 %></label><br>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="answer<%= i %>" id="opt2" value="<%= results[0][i-1].opt2 %>">
+                <label for="opt2"><%= results[0][i-1].opt2 %></label><br>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="answer<%= i %>" id="opt3" value="<%= results[0][i-1].opt3 %>">
+                <label for="opt3"><%= results[0][i-1].opt3 %></label><br>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="answer<%= i %>" id="opt4" value="<%= results[0][i-1].opt4 %>">
+                <label for="opt4"><%= results[0][i-1].opt4 %></label><br>
+            </div>
+            <% } else { %>
+                <div class="form-group">
+                    <h4><strong>Question: <%= i %></strong></h4><br>
+                    <label for="qeus<%= i %>"><%= results[0][i-1].que %></label><br>
+                    <input type="hidden" name="qid<%= i %>" id="qid<%= i %>" value="<%= results[0][i-1].id %>">
+                    <input type="hidden" name="qtype<%= i %>" id="qtype<%= i %>" value="<%= results[0][i-1].type %>"><br>    
+                    <textarea name="answer<%= i %>" id="answer<%= i %>" cols="30" rows="10">Not Answered</textarea><br>
+                </div>
+            <% }} %>
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </form>
+                            </div>
+
+                        </div>
+                    </section>
+
+            </div>
+</div>
+</div>
+    </section>
+</section></section>
+<script language ="javascript" >
+    var tim;
+   
+    var min = document.getElementById("Duration").textContent;
+    console.log(min)
+    var sec = 60;
+    var f = new Date();
+    function f1() {
+        f2();
+        document.getElementById("starttime").innerHTML = "Your started your Exam at " + f.getHours() + ":" + f.getMinutes();
+         
+      
+    }
+    function f2() {
+        if(parseInt(min) == 0 && parseInt(sec) == 0){
+            document.getElementById("exit").submit();
+        }
+        else if (parseInt(sec) > 0) {
+            sec = parseInt(sec) - 1;
+            document.getElementById("showtime").innerHTML = "Your Left Time  is :"+min+" Minutes ," + sec+" Seconds";
+            tim = setTimeout("f2()", 1000);
+        }
+        else {
+            if (parseInt(sec) == 0) {
+                min = parseInt(min) - 1;
+                if (parseInt(min) == 0) {
+                    clearTimeout(tim);
+                    location.href = "default5.aspx";
+                }
+                else {
+                    sec = 60;
+                    document.getElementById("showtime").innerHTML = "Your Left Time  is :" + min + " Minutes ," + sec + " Seconds";
+                    tim = setTimeout("f2()", 1000);
+                }
+            }
+           
+        }
+    }
+</script>
+
+<script>
+    var q = 0;
+    document.addEventListener("visibilitychange", function() {
+        console.log(q);
+        q++
+        window.alert("Warning! Tab change"); 
+        if(q>10){
+        document.getElementById("exit").submit();
+    }   
+    });
+
+</script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/js/scripts.js"></script>
+<script src="/js/jquery.slimscroll.js"></script>
+<script src="/js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="/js/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="/js/monthly.js"></script>
+
+<!-- morris JavaScript -->	
+</body>
+<!-- <h1>Create Exam</h1> -->
+

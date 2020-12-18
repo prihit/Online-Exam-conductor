@@ -1,0 +1,130 @@
+<form action="/<%= results[1][0].e_id %>/<%= id %>/checkexam" method="post">
+    <div>
+
+    </div>
+
+</form>    
+
+<!DOCTYPE html>
+<head>
+<title>OEC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="/css/font.css" type="text/css"/>
+<link href="/css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" href="/css/morris.css" type="text/css"/>
+<!-- calendar -->
+<link rel="stylesheet" href="/css/monthly.css">
+<!-- //calendar -->
+<!-- //font-awesome icons -->
+<script src="/js/jquery2.0.3.min.js"></script>
+<script src="/js/raphael-min.js"></script>
+<script src="/js/morris.js"></script>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix" style="background-color: rgb(57 170 165);">
+<!--logo start-->
+<!-- <div class="brand">
+</div> -->
+<!-- <img alt="" src="images/logo.jpeg" width="150px" style="-webkit-border-radius: 50%;"> -->
+<div class="top-nav clearfix" style="margin-top: 0px;">
+    <a href="/teadash" class="logo" style="color: #333333;">
+    <img alt="" src="/images/logo.jpeg" style="width: 100px;">
+       Online Exam Conductor
+    </a>
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="/images/images.png">
+                <span class="username"><%= results[2][0].name %></span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="#"><i class=" fa fa-suitcase"></i><%= results[2][0].designation %></a></li>
+                <li><a href="/logout"><i class="fa fa-key"></i> Log Out</a></li>
+            </ul>
+        </li>
+        <!-- user login dropdown end -->
+       
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<aside>
+    <div id="sidebar" class="nav-collapse" style=" width: 350px;">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation" style="padding-top: 95px; width: 350px;">
+            <img src="/images/mot2.jpeg" alt="" style="width: 350px; height: 600px;">
+                        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+	<section class="wrapper" style="margin-left: 70px;">
+	<div class="form-w3layouts">
+        <!-- page start-->
+        <!-- page start-->
+        <div class="row">
+            <div class="col-lg-12" style="padding-left: 20px;">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <%= results[1][0].ename %> Answer Sheet of 
+                            <%= results[3][0].name %>: <%= results[3][0].roll %>
+                        </header>
+                        <div class="panel-body">
+                            <div class="position-center">
+                                <form action="/<%= results[1][0].id %>/<%= id %>/checkexam" method="post" role="form">
+<% for(i=1;i<= results[0].length;i++){ %>
+
+                                <div class="form-group">
+                                    <h4>Question <%= i %>:<%= results[0][i-1].que %></h4><br>
+                                    <h4>Answer <%= i %>:<%= results[0][i-1].ans %></h4><br>
+                                    <input type="number" name="mq<%= i%>" id="mq<%= i%>" value="0" min="0" max="<%= results[0][i-1].mm %>"><br>
+                                    <input type="text" name="cq<%= i %>" id="cq<%= i %>" value="No Comments"><br>
+                                    <input type="hidden" name="qid<%= i %>" id="qid<%= i %>" value="<%= results[0][i-1].q_id %> ">
+                                    </div>
+                                    <% } %>
+                                    <input type="number" name="total" id="total" max="<%= results[1][0].maxm %>" value="0" min="0">
+                                    <input type="hidden" name="noq" id="noq" value="<%= results[1][0].nofque %>">
+                                    <input type="hidden" name="g_id" id="g_id" value="<%= results[1][0].id %>">
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </form>
+                            </div>
+
+                        </div>
+                    </section>
+
+            </div>
+</div>
+</div>
+    </section>
+</section></section>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/js/scripts.js"></script>
+<script src="/js/jquery.slimscroll.js"></script>
+<script src="/js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="/js/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="/js/monthly.js"></script>
+
+<!-- morris JavaScript -->	
+</body>
+<!-- <h1>Create Exam</h1> -->
+
